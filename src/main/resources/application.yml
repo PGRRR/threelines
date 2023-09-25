@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    '[org.springframework]' : INFO
+    '[com.pgrrr.threelines]': DEBUG
+
+spring:
+  profiles:
+    active: testdb
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

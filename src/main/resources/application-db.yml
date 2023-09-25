@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/threelines
+    username: your_database_username
+    password: your_database_password
