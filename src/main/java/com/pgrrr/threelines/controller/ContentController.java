@@ -1,6 +1,7 @@
 package com.pgrrr.threelines.controller;
 
 import com.pgrrr.threelines.domain.Content;
+import com.pgrrr.threelines.dto.ContentResponseDto;
 import com.pgrrr.threelines.service.ContentService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,8 @@ public class ContentController {
     private final ContentService contentService;
 
     @GetMapping("")
-    public ResponseEntity<List<String>> getContentList(){
-        List<String> contentList = contentService.getSubscriptionList();
+    public ResponseEntity<List<ContentResponseDto>> getContentList(){
+        List<ContentResponseDto> contentList = contentService.getContentList();
         return ResponseEntity.ok(contentList);
     }
 
@@ -28,13 +29,13 @@ public class ContentController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Content created successfully");
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> modifyContent(@PathVariable Long id, @RequestBody Content content) {
+    @PutMapping("/{contentNo}")
+    public ResponseEntity<String> modifyContent(@PathVariable Long contentNo, @RequestBody Content content) {
         return ResponseEntity.ok("Content modified successfully");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> removeContent(@PathVariable Long id) {
+    @DeleteMapping("/{contentNo}")
+    public ResponseEntity<String> removeContent(@PathVariable Long contentNo) {
         return ResponseEntity.ok("Content removed successfully");
     }
 

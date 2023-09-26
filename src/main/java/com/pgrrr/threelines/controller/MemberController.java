@@ -4,6 +4,9 @@ import com.pgrrr.threelines.domain.Member;
 import com.pgrrr.threelines.service.MemberService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +18,11 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Member> getUserById(@PathVariable Long id) {
-        return ResponseEntity.ok(new Member());
+    @GetMapping("/{memberNo}")
+    public ResponseEntity<Member> getUserById(@PathVariable Long memberNo) {
+        List<Member> memberList = memberService.getMemberList();
+        Member member = memberList.get(0);
+        return ResponseEntity.ok(member);
     }
 
     @PostMapping("")
@@ -25,13 +30,13 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Member created successfully");
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody Member member) {
+    @PutMapping("/{memberNo}")
+    public ResponseEntity<String> updateUser(@PathVariable Long memberNo, @RequestBody Member member) {
         return ResponseEntity.ok("Member updated successfully");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+    @DeleteMapping("/{memberNo}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long memberNo) {
         return ResponseEntity.ok("Member deleted successfully");
     }
 

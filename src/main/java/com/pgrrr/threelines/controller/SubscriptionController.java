@@ -1,6 +1,7 @@
 package com.pgrrr.threelines.controller;
 
 import com.pgrrr.threelines.domain.Subscription;
+import com.pgrrr.threelines.dto.SubscriptionResponseDto;
 import com.pgrrr.threelines.service.SubscriptionService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,8 @@ public class SubscriptionController {
     private final SubscriptionService subscriptionService;
 
     @GetMapping("")
-    public ResponseEntity<List<String>> getSubscriptionList(){
-        List<String> subscriptionList = subscriptionService.getSubscriptionList();
+    public ResponseEntity<List<SubscriptionResponseDto>> getSubscriptionList(){
+        List<SubscriptionResponseDto> subscriptionList = subscriptionService.getSubscriptionList();
         return ResponseEntity.ok(subscriptionList);
     }
 

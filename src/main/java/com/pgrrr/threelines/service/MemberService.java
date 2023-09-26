@@ -1,12 +1,12 @@
 package com.pgrrr.threelines.service;
 
-import com.pgrrr.threelines.repository.SubscriptionRepository;
+import com.pgrrr.threelines.domain.Member;
+import com.pgrrr.threelines.repository.MemberRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -14,10 +14,10 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class MemberService {
 
-    private final SubscriptionRepository subscriptionRepository;
+    private final MemberRepository memberRepository;
 
-    public List<String> getSubscriptionList() {
-        return new LinkedList<>();
+    public List<Member> getMemberList() {
+        return memberRepository.findAll();
     }
     
 }
