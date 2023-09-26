@@ -1,9 +1,7 @@
 package com.pgrrr.threelines.controller;
 
 import com.pgrrr.threelines.domain.Content;
-import com.pgrrr.threelines.domain.Subscription;
 import com.pgrrr.threelines.service.ContentService;
-import com.pgrrr.threelines.service.SubscriptionService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
