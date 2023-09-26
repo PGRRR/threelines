@@ -1,11 +1,14 @@
 package com.pgrrr.threelines.dto;
 
-import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public class MemberResponseDto {
     
+    private String memberEmail;
+    private String memberNm;
+    private String memberPw;
+
 }

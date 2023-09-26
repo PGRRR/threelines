@@ -2,9 +2,12 @@ package com.pgrrr.threelines.dto;
 
 import com.pgrrr.threelines.domain.Content;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 public class ContentRequestDto {
 
     private Long contentNo;
