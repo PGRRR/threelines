@@ -18,7 +18,7 @@ public enum ApiExceptionEnum implements ExceptionInfo {
 
     @Override
     public Class<? extends Exception> getExceptionClass() {
-        return Exception.class; // You can adjust this based on your actual exception hierarchy.
+        return Exception.class;
     }
 
     @Override
