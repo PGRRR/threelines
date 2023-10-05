@@ -1,12 +1,13 @@
 package com.pgrrr.threelines.exception;
 
+import lombok.AccessLevel;
 import org.springframework.http.HttpStatus;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 public enum ApiExceptionEnum implements ExceptionInfo {
     
     SUBSCRIPTION_NOT_FOUND(HttpStatus.BAD_REQUEST, "Subscription not found"),

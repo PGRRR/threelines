@@ -7,7 +7,7 @@ import lombok.Getter;
 @Builder
 public class ContentResponseDto {
 
-    private Long contentNo;
+    private String contentAddr;
     private String contentSummary;
     private String contentTitle;
     private String contentType;

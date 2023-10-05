@@ -1,25 +1,29 @@
 package com.pgrrr.threelines.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import com.pgrrr.threelines.dto.ContentResponseDto;
 
+import com.pgrrr.threelines.enums.LanguageCode;
 import lombok.Builder;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Builder
+@RequiredArgsConstructor
 public class Content extends BaseEntity{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CONTENT_NO", nullable = false)
     private Long contentNo;
+
+    @Column(name = "CONTENT_ADDR")
+    private String contentAddr;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "CONTENT_LANG")
+    private LanguageCode contentLang;
 
     @Column(name = "CONTENT_TITLE")
     private String contentTitle;
@@ -36,7 +40,7 @@ public class Content extends BaseEntity{
 
     public ContentResponseDto toDto(){
         return ContentResponseDto.builder()
-        .contentNo(this.contentNo)
+        .contentAddr(this.contentAddr)
         .contentSummary(this.contentSummary)
         .contentTitle(this.contentTitle)
         .contentType(this.contentType)

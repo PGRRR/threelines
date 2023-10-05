@@ -1,6 +1,7 @@
 package com.pgrrr.threelines.controller;
 
 import com.pgrrr.threelines.domain.Content;
+import com.pgrrr.threelines.dto.ContentRequestDto;
 import com.pgrrr.threelines.dto.ContentResponseDto;
 import com.pgrrr.threelines.service.ContentService;
 import lombok.AccessLevel;
@@ -25,7 +26,8 @@ public class ContentController {
     }
 
     @PostMapping("")
-    public ResponseEntity<String> addContent(@RequestBody Content content){
+    public ResponseEntity<String> addContent(@RequestBody ContentRequestDto contentRequestDto){
+        contentService.addContent(contentRequestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Content created successfully");
     }
 
