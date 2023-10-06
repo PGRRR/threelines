@@ -3,13 +3,14 @@ package com.pgrrr.threelines.service;
 import com.pgrrr.threelines.domain.Content;
 import com.pgrrr.threelines.dto.ContentRequestDto;
 import com.pgrrr.threelines.dto.ContentResponseDto;
+import com.pgrrr.threelines.exception.ApiErrorCode;
+import com.pgrrr.threelines.exception.ExternalApiException;
 import com.pgrrr.threelines.repository.ContentRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.Disposable;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -28,11 +29,11 @@ public class ContentService {
             .collect(Collectors.toList());
     }
 
-    @Transactional
+    @Transactional(rollbackFor = ExternalApiException.class)
     public void addContent(ContentRequestDto contentRequestDto) {
         contentRepository.findByContentAddrAndContentLang(contentRequestDto.getContentAddr(), contentRequestDto.getContentLang())
                 .ifPresent(content -> {
-                    throw new IllegalArgumentException("Content already exists");
+                    throw new ExternalApiException(ApiErrorCode.DUPLICATE_CONTENT_ERROR);
                     });
 
         WebClient webClient = WebClient.builder()
@@ -52,7 +53,7 @@ public class ContentService {
                     contentRepository.save(response.toEntity());
                 },
                 error -> {
-                    throw new IllegalArgumentException("Invalid content address or language");
+                    throw new ExternalApiException(ApiErrorCode.DUPLICATE_CONTENT_ERROR);
                 }
         );
     }

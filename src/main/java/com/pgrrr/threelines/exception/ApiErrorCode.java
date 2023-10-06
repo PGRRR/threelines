@@ -8,11 +8,11 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
-public enum ApiExceptionEnum implements ExceptionInfo {
+public enum ApiErrorCode implements ExceptionInfo {
     
     SUBSCRIPTION_NOT_FOUND(HttpStatus.BAD_REQUEST, "Subscription not found"),
     INVALID_SUBSCRIPTION(HttpStatus.BAD_REQUEST, "Invalid subscription"),
-    SUBSCRIPTION_EXPIRED(HttpStatus.BAD_REQUEST, "Subscription expired");
+    DUPLICATE_CONTENT_ERROR(HttpStatus.BAD_REQUEST, "Duplicate content detected");
 
     private final HttpStatus httpStatusType;
     private final String message;

@@ -24,6 +24,7 @@ CREATE TABLE `CONTENT` (
                            `CONTENT_NO` BIGINT AUTO_INCREMENT PRIMARY KEY,
                            `CONTENT_TITLE` VARCHAR(255) NULL,
                            `CONTENT_ADDR` VARCHAR(255) NULL,
+                           `CONTENT_LANG_CODE` CHAR(2) NULL,
                            `CONTENT_SUMMARY` TEXT NULL,
                            `CONTENT_TYPE` VARCHAR(255) NULL,
                            `SUB_NO` BIGINT NOT NULL,

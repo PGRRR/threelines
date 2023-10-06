@@ -17,4 +17,10 @@ public class ExceptionControllerAdvice {
         return ResponseEntity.internalServerError().body("");
     }
 
+    @ExceptionHandler(ExternalApiException.class)
+    public ResponseEntity<String> handleExternalApiException() {
+        LOGGER.error("", ExternalApiException.class);
+        return ResponseEntity.internalServerError().body("");
+    }
+
 }

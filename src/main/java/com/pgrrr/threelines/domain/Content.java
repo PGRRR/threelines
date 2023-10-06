@@ -5,12 +5,13 @@ import javax.persistence.*;
 import com.pgrrr.threelines.dto.ContentResponseDto;
 
 import com.pgrrr.threelines.enums.LanguageCode;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.RequiredArgsConstructor;
 
 @Entity
 @Builder
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Content extends BaseEntity{
     
     @Id
