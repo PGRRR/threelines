@@ -1,17 +1,18 @@
 package com.pgrrr.threelines.domain;
 
-import javax.persistence.*;
-
 import com.pgrrr.threelines.dto.ContentResponseDto;
 
 import com.pgrrr.threelines.enums.LanguageCode;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Content extends BaseEntity{
     
     @Id

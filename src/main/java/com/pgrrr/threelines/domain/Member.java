@@ -1,18 +1,17 @@
 package com.pgrrr.threelines.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Member extends BaseEntity{
     
     @Id
@@ -29,7 +28,7 @@ public class Member extends BaseEntity{
     @Column
     private String memberPw;
 
-    @OneToMany(mappedBy = "subscription")
-    private List<Subscription> subscriptions;
+    @OneToMany(mappedBy = "member")
+    private List<Subscription> subscriptions = new ArrayList<>();
 
 }

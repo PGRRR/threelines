@@ -1,22 +1,19 @@
 package com.pgrrr.threelines.domain;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.pgrrr.threelines.dto.SubscriptionResponseDto;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Subscription extends BaseEntity{
     
     @Id
@@ -34,8 +31,8 @@ public class Subscription extends BaseEntity{
     @JoinColumn
     private Member member;
 
-    @OneToMany(mappedBy = "content")
-    private List<Content> contents;
+    @OneToMany(mappedBy = "subscription")
+    private List<Content> contents = new ArrayList<>();
 
     public SubscriptionResponseDto toDto(){
         return SubscriptionResponseDto.builder()
