@@ -11,15 +11,15 @@ import lombok.Getter;
 @MappedSuperclass
 public abstract class BaseEntity {
 
-    @Column(name = "CREATED_BY")
+    @Column
     private String createdBy;
 
-    @Column(name = "CREATED_AT")
+    @Column
     private LocalDateTime createdAt;
 
-    @Column(name = "MODIFIED_BY")
+    @Column
     private String modifiedBy;
 
-    @Column(name = "MODIFIED_AT")
+    @Column
     private LocalDateTime modifiedAt;
 }

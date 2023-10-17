@@ -1,35 +1,35 @@
-CREATE TABLE `MEMBER` (
-                          `MEMBER_NO` BIGINT AUTO_INCREMENT PRIMARY KEY,
-                          `MEMBER_EMAIL` VARCHAR(255) NULL,
-                          `MEMBER_NM` VARCHAR(255) NULL,
-                          `MEMBER_PW` VARCHAR(255) NULL,
-                          `CREATED_BY` BIGINT NULL,
-                          `CREATED_AT` DATETIME NULL,
-                          `MODIFIED_BY` BIGINT NULL,
-                          `MODIFIED_AT` DATETIME NULL
+create table `member` (
+                          `member_no` bigint auto_increment primary key,
+                          `member_email` varchar(255) null,
+                          `member_nm` varchar(255) null,
+                          `member_pw` varchar(255) null,
+                          `created_by` bigint null,
+                          `created_at` datetime null,
+                          `modified_by` bigint null,
+                          `modified_at` datetime null
 );
 
-CREATE TABLE `SUBSCRIPTION` (
-                                `SUB_NO` BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                `SUB_TITLE` VARCHAR(255) NULL,
-                                `SUB_TYPE` VARCHAR(255) NULL,
-                                `MEMBER_NO` BIGINT NOT NULL,
-                                `CREATED_BY` BIGINT NULL,
-                                `CREATED_AT` DATETIME NULL,
-                                `MODIFIED_BY` BIGINT NULL,
-                                `MODIFIED_AT` DATETIME NULL
+create table `subscription` (
+                                `sub_no` bigint auto_increment primary key,
+                                `sub_title` varchar(255) null,
+                                `sub_type` varchar(255) null,
+                                `member_no` bigint not null,
+                                `created_by` bigint null,
+                                `created_at` datetime null,
+                                `modified_by` bigint null,
+                                `modified_at` datetime null
 );
 
-CREATE TABLE `CONTENT` (
-                           `CONTENT_NO` BIGINT AUTO_INCREMENT PRIMARY KEY,
-                           `CONTENT_TITLE` VARCHAR(255) NULL,
-                           `CONTENT_ADDR` VARCHAR(255) NULL,
-                           `CONTENT_LANG_CODE` CHAR(2) NULL,
-                           `CONTENT_SUMMARY` TEXT NULL,
-                           `CONTENT_TYPE` VARCHAR(255) NULL,
-                           `SUB_NO` BIGINT NOT NULL,
-                           `CREATED_BY` BIGINT NULL,
-                           `CREATED_AT` DATETIME NULL,
-                           `MODIFIED_BY` BIGINT NULL,
-                           `MODIFIED_AT` DATETIME NULL
+create table `content` (
+                           `content_no` bigint auto_increment primary key,
+                           `content_title` varchar(255) null,
+                           `content_addr` varchar(255) null,
+                           `content_lang_code` char(2) null,
+                           `content_summary` text null,
+                           `content_type` varchar(255) null,
+                           `sub_no` bigint not null,
+                           `created_by` bigint null,
+                           `created_at` datetime null,
+                           `modified_by` bigint null,
+                           `modified_at` datetime null
 );

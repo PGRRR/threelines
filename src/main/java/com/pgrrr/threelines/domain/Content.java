@@ -16,27 +16,27 @@ public class Content extends BaseEntity{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CONTENT_NO", nullable = false)
+    @Column(nullable = false)
     private Long contentNo;
 
-    @Column(name = "CONTENT_ADDR")
+    @Column
     private String contentAddr;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "CONTENT_LANG")
+    @Column
     private LanguageCode contentLang;
 
-    @Column(name = "CONTENT_TITLE")
+    @Column
     private String contentTitle;
 
-    @Column(name = "CONTENT_SUMMARY")
+    @Column
     private String contentSummary;
 
-    @Column(name = "CONTENT_TYPE")
+    @Column
     private String contentType;
 
     @ManyToOne
-    @JoinColumn(name = "SUB_NO")
+    @JoinColumn
     private Subscription subscription;
 
     public ContentResponseDto toDto(){

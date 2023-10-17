@@ -1,10 +1,13 @@
 package com.pgrrr.threelines.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Builder;
 
@@ -14,16 +17,19 @@ public class Member extends BaseEntity{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MEMBER_NO", nullable = false)
+    @Column(nullable = false)
     private Long memberNo;
 
-    @Column(name = "MEMBER_EMAIL")
+    @Column
     private String memberEmail;
 
-    @Column(name = "MEMBER_NM")
+    @Column
     private String memberNm;
 
-    @Column(name = "MEMBER_PW")
+    @Column
     private String memberPw;
+
+    @OneToMany(mappedBy = "subscription")
+    private List<Subscription> subscriptions;
 
 }
