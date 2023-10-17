@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 0
 
 logging:
   level:
@@ -19,3 +19,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+    
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    
